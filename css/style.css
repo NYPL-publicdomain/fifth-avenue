@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Kievit Web";
+  src: url("http://ux-static.nypl.org.s3-website-us-east-1.amazonaws.com/ff_kievit_web/KievitWeb-Book.woff") format('woff');
+}
+
+#photos {
+  position: absolute;
+  top: 0;
+  bottom: 30%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#photos ol, #photos li {
+  margin: 0;
+  padding: 0;
+}
+
+#photos ol {
+ list-style-type: none;
+}
+
+#photos li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#photos #photo-current {
+  left: 0;
+}
+
+#photos #photo-south {
+  transform: translate(-100%, 0);
+}
+
+#photos #photo-north {
+  transform: translate(100%, 0);
+}
+
+#photos #photo-across {
+
+}
+
+#map {
+  position: absolute;
+  top: 70%;
+  bottom: 0;
+  width: 100%;
+}

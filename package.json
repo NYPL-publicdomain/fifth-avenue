@@ -1,0 +1,40 @@
+{
+  "name": "fifth-avenue",
+  "version": "0.0.1",
+  "description": "Fifth Avenue, New York, from start to finish",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bertspaan@nypl.org",
+  "license": "MIT",
+  "dependencies": {
+    "mapbox-gl": "^0.12.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "turf-distance": "^1.0.1",
+    "turf-point-on-line": "^1.0.2"
+  },
+  "dev-dependencies": {
+    "babel-preset-es2015": "^6.1.2",
+    "babel-preset-react": "^6.1.2",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-duration": "0.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "utils-merge": "^1.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.6.0"
+  },
+  "browserify": {
+    "extension": [
+      "jsx",
+      "js"
+    ]
+  }
+}
