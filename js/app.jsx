@@ -87,7 +87,7 @@ module.exports = React.createClass({
     } else if (e.keyCode == '37') {
       this.goSouth();
     } else if (e.keyCode == '39') {
-       this.goNorth();
+      this.goNorth();
     }
   },
 

@@ -2845,7 +2845,7 @@ module.exports = React.createClass({
 window.React = require('react');
 window.ReactDOM = require('react-dom');
 
-var fieldsOfView = require('../cones.json');
+var fieldsOfView = require('../data/cones.json');
 var startUuid = '74db14a0-c6ca-012f-8de3-58d385a7bc34';
 
 var App = require('./app');
@@ -2853,7 +2853,7 @@ var el = document.getElementById('app');
 
 ReactDOM.render(React.createElement(App, { fieldsOfView: fieldsOfView, uuid: startUuid }), el);
 
-},{"../cones.json":1,"./app":2,"react":292,"react-dom":163}],4:[function(require,module,exports){
+},{"../data/cones.json":1,"./app":2,"react":292,"react-dom":163}],4:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -3026,6 +3026,21 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: 'exports',
 
+  getDefaultProps: function getDefaultProps() {
+    return {
+      // allow the initial position to be passed in as a prop
+      initialPos: { x: 0, y: 0 }
+    };
+  },
+
+  getInitialState: function getInitialState() {
+    return {
+      pos: this.props.initialPos,
+      dragging: false,
+      rel: null // position relative to the cursor
+    };
+  },
+
   render: function render() {
     var currentItem = this.props.currentItem;
     var south = this.props.getDirections.south(this.props.currentItem);
@@ -3033,7 +3048,8 @@ module.exports = React.createClass({
 
     var styles = {
       current: {
-        backgroundImage: 'url("photos/' + currentItem.uuid + '.jpg")'
+        backgroundImage: 'url("photos/' + currentItem.uuid + '.jpg")',
+        backgroundPosition: this.state.pos.x + 'px ' + this.state.pos.y + 'px'
       },
       south: {
         backgroundImage: south ? 'url("photos/' + south.uuid + '.jpg")' : null
@@ -3042,6 +3058,8 @@ module.exports = React.createClass({
         backgroundImage: north ? 'url("photos/' + north.uuid + '.jpg")' : null
       }
     };
+
+    //<li id='photo-across' ref='across'></li>
 
     return React.createElement(
       'section',
@@ -3056,8 +3074,7 @@ module.exports = React.createClass({
           React.createElement(
             'ol',
             null,
-            React.createElement('li', { id: 'photo-current', ref: 'current', style: styles.current }),
-            React.createElement('li', { id: 'photo-across', ref: 'across' })
+            React.createElement('li', { id: 'photo-current', ref: 'current', style: styles.current, onMouseDown: this.onMouseDown })
           )
         ),
         React.createElement('li', { id: 'photo-north', ref: 'north', style: styles.north })
