@@ -5,9 +5,10 @@ var babelify = require('babelify'); // Used to convert ES6 & JSX to ES5
 var browserify = require('browserify'); // Providers "require" support, CommonJS
 var notify = require('gulp-notify'); // Provides notification to both the console and Growel
 var rename = require('gulp-rename'); // Rename sources
+var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps'); // Provide external sourcemap files
-var livereload = require('gulp-livereload'); // Livereload support for the browser
+var connect = require('gulp-connect');
 var gutil = require('gulp-util'); // Provides gulp utilities, including logging and beep
 var chalk = require('chalk'); // Allows for coloring for logging
 var source = require('vinyl-source-stream'); // Vinyl stream support
@@ -18,6 +19,7 @@ var duration = require('gulp-duration'); // Time aspects of your gulp process
 
 // Configuration for Gulp
 var config = {
+  debug: true,
   js: {
     src: './js/main.jsx',
     watch: './js/**/*',
@@ -47,13 +49,18 @@ function mapError(err) {
 function bundle(bundler) {
   var bundleTimer = duration('Javascript bundle time');
 
-  bundler
+  var js = bundler
     .bundle()
     .on('error', mapError) // Map error reporting
     .pipe(source('main.jsx')) // Set source name
     .pipe(buffer()) // Convert to gulp pipeline
-    .pipe(rename(config.js.outputFile)) // Rename the output file
-    // .pipe(uglify())
+    .pipe(rename(config.js.outputFile)); // Rename the output file
+
+  if (!config.debug) {
+    js = js.pipe(uglify());
+  }
+
+  js
     .pipe(sourcemaps.init({loadMaps: true})) // Extract the inline sourcemaps
     .pipe(sourcemaps.write('./map')) // Set folder for sourcemaps to output to
     .pipe(gulp.dest(config.js.outputDir)) // Set the output folder
@@ -61,19 +68,46 @@ function bundle(bundler) {
       message: 'Generated file: <%= file.relative %>',
     })) // Output the file being created
     .pipe(bundleTimer) // Output time timing of the file creation
-    .pipe(livereload()); // Reload the view in the browser
+    .pipe(connect.reload());
 }
 
-gulp.task('apply-prod-environment', function() {
-  // process.env.NODE_ENV = 'production';
-  process.env.DEBUG = '*';
+gulp.task('production', function() {
+  config.debug = false;
+});
 
+gulp.task('env', function() {
+  if (config.debug) {
+    process.env.DEBUG = '*';
+  } else {
+    process.env.NODE_ENV = 'production';
+  }
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    livereload: true
+  });
+});
+
+gulp.task('sass', function () {
+  gulp.src('./css/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(config.js.outputDir));
+});
+
+gulp.task('watch', function() {
+  gulp.watch(['*.html', 'css/*'],
+    ['reload']);
+});
+
+gulp.task('reload', function() {
+  gulp.src(['*.html'])
+    .pipe(connect.reload());
 });
 
 // Gulp task for build
-gulp.task('default', ['apply-prod-environment'], function() {
-  livereload.listen(); // Start livereload server
-  var args = merge(watchify.args, { debug: true }); // Merge in default watchify args with browserify arguments
+gulp.task('bundle', ['env', 'sass'], function() {
+  var args = {};
 
   args.extensions = ['.jsx'];
 
@@ -87,3 +121,6 @@ gulp.task('default', ['apply-prod-environment'], function() {
     bundle(bundler); // Re-run bundle on source updates
   });
 });
+
+gulp.task('default', ['connect', 'watch', 'bundle']);
+gulp.task('build', ['production', 'bundle']);

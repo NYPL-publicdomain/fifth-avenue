@@ -2,6 +2,8 @@ var React = require('react');
 
 var Photos = require('./photos');
 var Map = require('./map');
+var StreetView = require('./street-view');
+
 var distance = require('turf-distance');
 
 module.exports = React.createClass({
@@ -40,6 +42,11 @@ module.exports = React.createClass({
         south: this.getSouth,
         north: this.getNorth,
         across: this.getAcross
+      },
+      goDirections: {
+        south: this.goSouth,
+        north: this.goNorth,
+        across: this.goAcross
       }
     };
   },
@@ -47,7 +54,8 @@ module.exports = React.createClass({
   render: function() {
     return (
       <article>
-        <Photos ref='photos' setUuid={this.setUuid} currentItem={this.state.currentItem} getDirections={this.state.getDirections} />
+        <Photos ref='photos' setUuid={this.setUuid} currentItem={this.state.currentItem} getDirections={this.state.getDirections} goDirections={this.state.goDirections} />
+        <StreetView currentItem={this.state.currentItem} />
         <Map ref='map' setUuid={this.setUuid} currentItem={this.state.currentItem} fieldsOfView={this.state.fieldsOfView} />
       </article>
     );

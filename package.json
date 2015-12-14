@@ -5,11 +5,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "http://github.com/nypl-spacetime/fifth-avenue",
   "author": "bertspaan@nypl.org",
   "license": "MIT",
   "dependencies": {
+    "google-maps-api": "^2.0.0",
     "mapbox-gl": "^0.12.0",
     "react": "^0.14.2",
+    "react-addons-css-transition-group": "^0.14.3",
     "react-dom": "^0.14.2",
     "turf-distance": "^1.0.1",
     "turf-point-on-line": "^1.0.2"
@@ -20,16 +23,18 @@
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
     "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
     "gulp-duration": "0.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "utils-merge": "^1.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.0"
+    "watchify": "^3.6.1"
   },
   "browserify": {
     "extension": [

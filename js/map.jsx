@@ -34,8 +34,9 @@ module.exports = React.createClass({
         ],
         zoom: 16,
         bearing: -61.06,
-        pitch: 30,
+        //pitch: 30,
       },
+
       fifthAvenue: {
         type: 'Feature',
         properties: {},
@@ -58,27 +59,33 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <section id='map' />
+      <section id='map' className='aspect-ratio' />
     );
   },
 
   componentDidMount: function() {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmVydHNwYWFuIiwiYSI6ImR3dERiQk0ifQ.DLbScmbRohc3Sqv7prfhqw';
-    var map = new mapboxgl.Map(Object.assign(this.state.flyTo, {
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v8'
-      // style: 'mapbox://styles/mapbox/satellite-v8',
-    }));
 
-    map.dragRotate.disable();
+    // var styleUrl = 'mapbox://styles/bertspaan/cih58g664001k9sm5pxoyfji9';
+    var styleUrl = 'https://api.mapbox.com/styles/v1/bertspaan/cih58g664001k9sm5pxoyfji9?access_token='+ mapboxgl.accessToken;
 
-    map.on('click', this.onClick);
-    map.on('mousemove', this.onMousemove);
-    map.on('style.load', this.onStyleLoad);
+    mapboxgl.util.getJSON(styleUrl, (err, stylesheet) => {
+      var mapStyle = {
+        container: 'map',
+        style: stylesheet
+      };
 
-    this.setState({
-      map: map
-    })
+      var map = new mapboxgl.Map(Object.assign({}, this.state.flyTo, mapStyle));
+      map.dragRotate.disable();
+
+      map.on('click', this.onClick);
+      map.on('mousemove', this.onMousemove);
+      map.on('style.load', this.onStyleLoad);
+
+      this.setState({
+        map: map
+      });
+    });
   },
 
   setItem: function(item) {
@@ -90,8 +97,12 @@ module.exports = React.createClass({
       };
       var pointOnFifthAvenue = pointOnLine(this.state.fifthAvenue, point);
 
-      this.state.map.flyTo(Object.assign(this.state.flyTo, {
-        center: pointOnFifthAvenue.geometry.coordinates
+      var direction = item.feature.properties.direction;
+      var bearing = this.state.flyTo.bearing; // + ((direction === 'east') ? 180 : 0);
+
+      this.state.map.flyTo(Object.assign({}, this.state.flyTo, {
+        center: pointOnFifthAvenue.geometry.coordinates,
+        bearing: bearing
       }));
 
       var triangle = this.state.triangles.features[item.index];
