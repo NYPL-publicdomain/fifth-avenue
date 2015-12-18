@@ -52,11 +52,22 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    // <p>
+    //   Fifth Avenue, the street that became the social and cultural spine of New York's elite, first appeared on the Commissioners&#39; Map of 1811. At that time, it was merely a country road to Yorkville (then just a tiny self-contained village), but in the proposed grid plan it would be a grand boulevard. As the City grew and prospered Fifth Avenue became synonymous with fashionable life, the site of mansions, cultural and social institutions, and restaurants and shops catering to the elite.
+    // </p>
+    // <img src='img/fifth-avenue.png' />
+    // <p>
+    //   In 1907, alarmed at the approach of factories, the leading merchants and residents formed the Fifth Avenue Association. The "Save New York Committee" became a bulwark against the wrong kind of development. Perhaps inspired by this contemporary movement, photographer Burton Welles used a wide-angled view camera in 1911 to document this most important street from Washington Square, north to East 93rd Street.
+    // </p>
+
     return (
       <article>
+        <section className='margin-top'>
+          <img src='img/fifth-avenue.png' />
+        </section>
         <Photos ref='photos' setUuid={this.setUuid} currentItem={this.state.currentItem} getDirections={this.state.getDirections} goDirections={this.state.goDirections} />
-        <StreetView currentItem={this.state.currentItem} />
         <Map ref='map' setUuid={this.setUuid} currentItem={this.state.currentItem} fieldsOfView={this.state.fieldsOfView} />
+        <StreetView currentItem={this.state.currentItem} />
       </article>
     );
   },

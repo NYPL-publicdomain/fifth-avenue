@@ -11,3 +11,10 @@
 //   movement, photographer Burton Welles used a wide-angled view camera in 1911 to document this most important street from
 //   <a>Washington Square</a>, north to <a>East 93rd Street</a>.
 // </p>
+
+// <h1>Fifth Avenue New York, from Start to Finish</h1>
+// <p>1911 street view! Heel erg mooi!</p>
+// <p>See this collection in The New York Public Library <a href='http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about'>Digital Collections</a>, or download the data
+//   from <a href='https://github.com/nypl-spacetime/fifth-avenue/blob/gh-pages/data/views.json'>GitHub</a>. All the photos in this collection - as well as many more items - are in the <a href=''>public domain</a>. Press left to go south, right to go north, and up or down to cross the street.
+// </p>
+// </div>

@@ -1,12 +1,16 @@
 var React = require('react');
+var tweenState = require('react-tween-state');
 
 var mapboxgl = require('mapbox-gl');
 var pointOnLine = require('turf-point-on-line');
 
 module.exports = React.createClass({
+  mixins: [tweenState.Mixin],
 
   getInitialState: function() {
     return {
+      radiusMin: 75,
+      radiusMax: 150,
       triangles: {
         type: 'FeatureCollection',
         features: this.props.fieldsOfView.features.map(function(feature) {
@@ -32,8 +36,8 @@ module.exports = React.createClass({
           -73.9821,
           40.7520
         ],
-        zoom: 16,
-        bearing: -61.06,
+        zoom: 15,
+        bearing: -61.07,
         //pitch: 30,
       },
 
@@ -58,8 +62,37 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    var minWidth = this.state.radiusMin * 2;
+    var maxWidth = this.state.radiusMax * 2;
+
+    var circlesStyle = {
+      height: `${maxWidth}px`
+    };
+
+    var mapWrapperStyle = {
+      width: `${maxWidth}px`,
+      height: `${maxWidth}px`,
+      marginTop: `-${maxWidth / 2}px`
+    };
+
+    var minWidthPx = `${minWidth}px`;
+    var minRadiusPx = `${minWidth / 2}px`;
+
     return (
-      <section id='map' className='aspect-ratio' />
+      <section id='map-container' onMouseOver={this.onMouseOver}>
+        <div id='map-wrapper' style={mapWrapperStyle}>
+          <svg id='circles' style={circlesStyle} xmlns='http://www.w3.org/2000/svg' >
+            <defs>
+              <clipPath id='clipping-circle'>
+                <circle cx={minWidthPx} cy={minWidthPx} r={minRadiusPx} />
+              </clipPath>
+            </defs>
+            <circle cx={minWidthPx} cy={minWidthPx} r={minRadiusPx} />
+          </svg>
+          <div id='map' />
+        </div>
+      </section>
+
     );
   },
 
@@ -68,10 +101,11 @@ module.exports = React.createClass({
 
     // var styleUrl = 'mapbox://styles/bertspaan/cih58g664001k9sm5pxoyfji9';
     var styleUrl = 'https://api.mapbox.com/styles/v1/bertspaan/cih58g664001k9sm5pxoyfji9?access_token='+ mapboxgl.accessToken;
-
+    // TODO: DO NOT GET JSON!
     mapboxgl.util.getJSON(styleUrl, (err, stylesheet) => {
       var mapStyle = {
         container: 'map',
+        attributionControl: false,
         style: stylesheet
       };
 
@@ -87,6 +121,17 @@ module.exports = React.createClass({
       });
     });
   },
+
+  onMouseOver: function() {
+    console.log('HONDEN')
+    this.tweenState('radiusMin', {
+      easing: tweenState.easingTypes.easeInOutQuad,
+      duration: 500,
+      endValue: this.state.radiusMax
+    });
+  },
+
+
 
   setItem: function(item) {
     if (this.state.map) {

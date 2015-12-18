@@ -27,26 +27,24 @@ module.exports = React.createClass({
     //<li id='photo-across' ref='across'></li>
 
     return (
-      <div>
-        <section id='photos-container'>
-          <nav>
-            <ul>
-              <li className='align-left'>← <a href='#' onClick={this.goSouth}>South</a></li>
-              <li className='align-middle'>↕ <a href='#' onClick={this.goAcross}>Cross street</a></li>
-              <li className='align-right'><a href='#' onClick={this.goNorth}>North</a> →</li>
-            </ul>
-          </nav>
-          <div id='photos' className='aspect-ratio'>
-            <ol>
-              <ReactCSSTransitionGroup transitionName='example' transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-                {south ? <li key={south.uuid} id='photo-south' ref='south' style={styles.south}></li> : null }
-                <li key={current.uuid} id='photo-current' ref='current' style={styles.current} onClick={this.handleClick} ></li>
-                { north ? <li key={north.uuid} id='photo-north' ref='north' style={styles.north}></li> : null }
-              </ReactCSSTransitionGroup>
-            </ol>
-          </div>
-        </section>
-      </div>
+      <section id='photos-container' className='margin-top full-width'>
+        <nav>
+          <ul>
+            <li className='align-left'>← <a href='#' onClick={this.goSouth}>Go south</a></li>
+            <li className='align-middle'>↕ <a href='#' onClick={this.goAcross}>Cross the street</a></li>
+            <li className='align-right'><a href='#' onClick={this.goNorth}>Go north</a> →</li>
+          </ul>
+        </nav>
+        <div id='photos' className='aspect-ratio'>
+          <ol>
+            <ReactCSSTransitionGroup transitionName='example' transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+              {south ? <li key={south.uuid} id='photo-south' ref='south' style={styles.south}></li> : null }
+              <li key={current.uuid} id='photo-current' ref='current' style={styles.current} onClick={this.handleClick} ></li>
+              { north ? <li key={north.uuid} id='photo-north' ref='north' style={styles.north}></li> : null }
+            </ReactCSSTransitionGroup>
+          </ol>
+        </div>
+      </section>
     );
   },
 

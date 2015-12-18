@@ -34,10 +34,10 @@ module.exports = React.createClass({
       }
 
       return (
-        <div id='street-view-container'>
+        <section id='street-view-container' className='margin-top full-width' >
           <div id='street-view' className={className} />
-          <a href='#' onClick={this.toggleColorFilters}>Toggle real colors</a>
-        </div>
+          <a id='real-colors' href='javascript:void(0)' onClick={this.toggleColorFilters}>Toggle colors</a>
+        </section>
       );
     } else {
       return null;
@@ -51,9 +51,9 @@ module.exports = React.createClass({
           document.getElementById('street-view'), {
             zoom: 0,
             linksControl: false,
+            // addressControl: false
             panControl: false,
-            zoomControl: false,
-            addressControl: false
+            zoomControl: false
           }
         );
 
