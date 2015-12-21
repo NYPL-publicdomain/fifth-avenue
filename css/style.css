@@ -4,7 +4,7 @@
 }
 
 .margin-top {
-  margin-top: 1em;
+  margin-top: 5px;
 }
 
 body {
@@ -118,10 +118,19 @@ section {
 #map {
   width: 100%;
   height: 100%;
-
+/*
   -webkit-clip-path: url('../#clipping-circle');
   -moz-clip-path: url('../#clipping-circle');
-  clip-path: url('../#clipping-circle');
+  clip-path: url('../#clipping-circle');*/
+
+  -webkit-clip-path: circle(75px at center);
+  transition: -webkit-clip-path 0.5s ease;
+
+
+}
+
+#map:hover {
+  -webkit-clip-path: circle(150px at center);
 }
 
 #circles {

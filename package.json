@@ -14,7 +14,6 @@
     "react": "^0.14.2",
     "react-addons-css-transition-group": "^0.14.3",
     "react-dom": "^0.14.2",
-    "react-tween-state": "^0.1.4",
     "turf-distance": "^1.0.1",
     "turf-point-on-line": "^1.0.2"
   },

@@ -1,11 +1,9 @@
 var React = require('react');
-var tweenState = require('react-tween-state');
 
 var mapboxgl = require('mapbox-gl');
 var pointOnLine = require('turf-point-on-line');
 
 module.exports = React.createClass({
-  mixins: [tweenState.Mixin],
 
   getInitialState: function() {
     return {
@@ -81,14 +79,6 @@ module.exports = React.createClass({
     return (
       <section id='map-container' onMouseOver={this.onMouseOver}>
         <div id='map-wrapper' style={mapWrapperStyle}>
-          <svg id='circles' style={circlesStyle} xmlns='http://www.w3.org/2000/svg' >
-            <defs>
-              <clipPath id='clipping-circle'>
-                <circle cx={minWidthPx} cy={minWidthPx} r={minRadiusPx} />
-              </clipPath>
-            </defs>
-            <circle cx={minWidthPx} cy={minWidthPx} r={minRadiusPx} />
-          </svg>
           <div id='map' />
         </div>
       </section>
