@@ -1,7 +1,7 @@
 window.React = require('react');
 window.ReactDOM = require('react-dom');
 
-var fieldsOfView = require('../data/cones.json');
+var fieldsOfView = require('../data/fields-of-view.json');
 var startUuid = '74db14a0-c6ca-012f-8de3-58d385a7bc34';
 
 var App = require('./app');

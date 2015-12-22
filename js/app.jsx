@@ -24,8 +24,8 @@ module.exports = React.createClass({
     var southToNorth = {};
     var length = fieldsOfView.features.length;
     fieldsOfView.features.forEach(function(feature, i) {
-      southToNorth[feature.properties.uuid] = {
-        uuid: feature.properties.uuid,
+      southToNorth[feature.properties.id] = {
+        uuid: feature.properties.id,
         index: i,
         north: (i < length - 1) ? fieldsOfView.features[i + 1] : null,
         south: (i > 0) ? fieldsOfView.features[i - 1] : null,
@@ -131,11 +131,11 @@ module.exports = React.createClass({
   },
 
   getSouthOrNorth: function(item, southOrNorth) {
-    return this.findFirstDirection(item, southOrNorth, item.feature.properties.direction);
+    return this.findFirstDirection(item, southOrNorth, item.feature.properties.data.direction);
   },
 
   getAcross: function(item) {
-    var direction = item.feature.properties.direction;
+    var direction = item.feature.properties.data.direction;
     var newDirection = (direction === 'west') ? 'east' : 'west';
 
     var north = this.findFirstDirection(item, 'north', newDirection);
@@ -169,15 +169,15 @@ module.exports = React.createClass({
 
     if (item[southOrNorth]) {
       // Go one photo south or north
-      var tempItem = southToNorth[item[southOrNorth].properties.uuid];
+      var tempItem = southToNorth[item[southOrNorth].properties.id];
 
       // Go south or north until there are either no more photos, or until photo with
       //   same direction is found
-      while (tempItem[southOrNorth] && tempItem.feature.properties.direction !== westOrEast) {
-        tempItem = southToNorth[tempItem[southOrNorth].properties.uuid];
+      while (tempItem[southOrNorth] && tempItem.feature.properties.data.direction !== westOrEast) {
+        tempItem = southToNorth[tempItem[southOrNorth].properties.id];
       }
 
-      if (tempItem.feature.properties.direction === westOrEast) {
+      if (tempItem.feature.properties.data.direction === westOrEast) {
         return tempItem;
       }
     } else {

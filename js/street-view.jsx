@@ -14,7 +14,7 @@ module.exports = React.createClass({
   render: function() {
     if (this.props.currentItem) {
       var feature = this.props.currentItem.feature;
-      var bearing = feature.properties.bearing;
+      var bearing = feature.properties.data.bearing;
       var point = feature.geometry.geometries[0].coordinates;
       var position = {
         lat: point[1],

@@ -1,5 +1,7 @@
 'use strict';
 
+var fs = require('fs');
+
 var gulp = require('gulp');  // Base gulp package
 var babelify = require('babelify'); // Used to convert ES6 & JSX to ES5
 var browserify = require('browserify'); // Providers "require" support, CommonJS
@@ -16,6 +18,8 @@ var buffer = require('vinyl-buffer'); // Vinyl stream support
 var watchify = require('watchify'); // Watchify for source changes
 var merge = require('utils-merge'); // Object merge tool
 var duration = require('gulp-duration'); // Time aspects of your gulp process
+
+var data = require('./data');
 
 // Configuration for Gulp
 var config = {
@@ -103,6 +107,16 @@ gulp.task('watch', function() {
 gulp.task('reload', function() {
   gulp.src(['*.html'])
     .pipe(connect.reload());
+});
+
+gulp.task('data', function() {
+  var outputFile = './data/fields-of-view.json';
+  var url = 'https://raw.githubusercontent.com/nypl-spacetime/data/master/digital-collections/digital-collections.pits.ndjson';
+
+  gutil.log('Downloading NDJSON, creating fields-of-view, writing to `' + outputFile + '`');
+
+  data(url)
+    .pipe(fs.createWriteStream(outputFile));
 });
 
 // Gulp task for build

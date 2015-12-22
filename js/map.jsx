@@ -15,7 +15,7 @@ module.exports = React.createClass({
           return {
             type: 'Feature',
             properties: {
-              uuid: feature.properties.uuid
+              uuid: feature.properties.id
             },
             geometry: {
               type: 'Polygon',
@@ -132,7 +132,7 @@ module.exports = React.createClass({
       };
       var pointOnFifthAvenue = pointOnLine(this.state.fifthAvenue, point);
 
-      var direction = item.feature.properties.direction;
+      var direction = item.feature.properties.data.direction;
       var bearing = this.state.flyTo.bearing; // + ((direction === 'east') ? 180 : 0);
 
       this.state.map.flyTo(Object.assign({}, this.state.flyTo, {
@@ -207,7 +207,7 @@ module.exports = React.createClass({
   onClick: function(e) {
     this.state.map.featuresAt(e.point, {layer: 'triangles', radius: 0}, function(err, features) {
       if (features.length) {
-        var uuid = features[0].properties.uuid;
+        var uuid = features[0].properties.id;
         this.props.setUuid(uuid);
       }
     }.bind(this));
