@@ -7,6 +7,8 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
+      enlarge: false,
+      borderWidth: 3,
       radiusMin: 75,
       radiusMax: 150,
       triangles: {
@@ -76,13 +78,15 @@ module.exports = React.createClass({
     var minWidthPx = `${minWidth}px`;
     var minRadiusPx = `${minWidth / 2}px`;
 
+    var className = this.state.enlarge ? 'enlarge' : '';
+
     return (
-      <section id='map-container' onMouseOver={this.onMouseOver}>
-        <div id='map-wrapper' style={mapWrapperStyle}>
-          <div id='map' />
+      <section id='map-container'>
+        <div id='map-wrapper' style={mapWrapperStyle} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+          <div id='map-border' className={className} />
+          <div id='map' className={className + ' mapboxgl-map'}/>
         </div>
       </section>
-
     );
   },
 
@@ -111,17 +115,6 @@ module.exports = React.createClass({
       });
     });
   },
-
-  onMouseOver: function() {
-    console.log('HONDEN')
-    this.tweenState('radiusMin', {
-      easing: tweenState.easingTypes.easeInOutQuad,
-      duration: 500,
-      endValue: this.state.radiusMax
-    });
-  },
-
-
 
   setItem: function(item) {
     if (this.state.map) {
@@ -207,10 +200,22 @@ module.exports = React.createClass({
   onClick: function(e) {
     this.state.map.featuresAt(e.point, {layer: 'triangles', radius: 0}, function(err, features) {
       if (features.length) {
-        var uuid = features[0].properties.id;
+        var uuid = features[0].properties.uuid;
         this.props.setUuid(uuid);
       }
     }.bind(this));
+  },
+
+  onMouseEnter: function() {
+    this.setState({
+      enlarge: true
+    });
+  },
+
+  onMouseLeave: function() {
+    this.setState({
+      enlarge: false
+    });
   },
 
   onMousemove: function(e) {
