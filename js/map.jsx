@@ -176,7 +176,7 @@ module.exports = React.createClass({
         'line-cap': 'round'
       },
       paint: {
-        'fill-color': '#007ad8',
+        'fill-color': '#c02026',
         // 'fill-opacity': 0.8
         //'line-color': '#d8b92f',
         //'line-width': 3
