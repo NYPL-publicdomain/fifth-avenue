@@ -11,6 +11,11 @@ body {
   margin: 0;
   background-color: rgb(38, 38, 38);
   font-family: 'Kievit Web';
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 body, a, a:visited {
