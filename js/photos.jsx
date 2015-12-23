@@ -30,9 +30,9 @@ module.exports = React.createClass({
       <section id='photos-container' className='margin-top full-width'>
         <nav>
           <ul>
-            <li className='align-left'>← <a href='#' onClick={this.goSouth}>Go south</a></li>
-            <li className='align-middle'>↕ <a href='#' onClick={this.goAcross}>Cross the street</a></li>
-            <li className='align-right'><a href='#' onClick={this.goNorth}>Go north</a> →</li>
+            <li className='align-left'>← <a href='javascript:void(0)' onClick={this.goSouth}>Go south</a></li>
+            <li className='align-middle'>↕ <a href='javascript:void(0)' onClick={this.goAcross}>Cross the street</a></li>
+            <li className='align-right'><a href='javascript:void(0)' onClick={this.goNorth}>Go north</a> →</li>
           </ul>
         </nav>
         <div id='photos' className='aspect-ratio'>
