@@ -35,6 +35,6 @@ This dataset contains photo UUIDs, and additional information about the photo's 
 }
 ```
 
-With Space/Time's [field-of-view](https://github.com/nypl-spacetime/field-of-view) module, we can convert this dataset to a GeoJSON file containing field of view geometries:
+With Space/Time's [field-of-view](https://github.com/nypl-spacetime/field-of-view) module, we can convert this dataset to a GeoJSON file containing [field of view geometries](data/fields-of-view.json):
 
 [![](img/field-of-view.png)](data/fields-of-view.json)
