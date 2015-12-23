@@ -2,9 +2,7 @@
 
 __The visualization can be found here: http://publicdomain.nypl.org/fifth-avenue/__
 
-A [public domain remix](http://publicdomain.nypl.org) by [Bert Spaan](https://twitter.com/bertspaan) of [NYPL Labs](http://labs.nypl.org), using the [Fifth Avenue from Start to Finish collection](http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about) from 1911.
-
-This visualization lets you compare the photos from this collection with
+_Street View, Then & Now: New York City's Fifth Avenue is_ a [public domain remix](http://publicdomain.nypl.org) by [Bert Spaan](https://twitter.com/bertspaan) of [NYPL Labs](http://labs.nypl.org), using the [Fifth Avenue from Start to Finish collection](http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about) from 1911, it lets you compare the photos from this collection with
 2015's [Google Street View](https://www.google.nl/maps/@40.7528429,-73.9813567,3a,75y,299.2h,96.54t/data=!3m6!1e1!3m4!1sFR-Gcj5IDRGxJ72fhcikWw!2e0!7i13312!8i6656).
 
 ![](photos/74db14a0-c6ca-012f-8de3-58d385a7bc34.jpg)
