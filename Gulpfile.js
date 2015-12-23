@@ -19,7 +19,7 @@ var watchify = require('watchify'); // Watchify for source changes
 var merge = require('utils-merge'); // Object merge tool
 var duration = require('gulp-duration'); // Time aspects of your gulp process
 
-var data = require('./data');
+var data = require('./data/data');
 
 // Configuration for Gulp
 var config = {
