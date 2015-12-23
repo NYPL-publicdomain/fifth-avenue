@@ -16,6 +16,7 @@ Data from the [Space/Time Directory](http://spacetime.nypl.org/) Digital Collect
 
 This dataset contains photo UUIDs, and additional information about the photo's location and [field of view](https://en.wikipedia.org/wiki/Field_of_view):
 
+```json
 {
 	"id": "678a75d0-c6ca-012f-037f-58d385a7bc34",
 	"type": "st:Photo",
@@ -32,9 +33,8 @@ This dataset contains photo UUIDs, and additional information about the photo's 
 	"validSince": 1911,
 	"validUntil": 1911
 }
+```
 
 With Space/Time's [field-of-view](https://github.com/nypl-spacetime/field-of-view) module, we can convert this dataset to a GeoJSON file containing field of view geometries:
 
-- https://github.com/NYPL-publicdomain/fifth-avenue/blob/gh-pages/data/fields-of-view.json
-
-![](img/field-of-view.png)
+[![](img/field-of-view.png)](data/fields-of-view.json)
