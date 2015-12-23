@@ -1,7 +1,7 @@
 {
   "name": "fifth-avenue",
   "version": "0.0.1",
-  "description": "Fifth Avenue, New York, from start to finish",
+  "description": "Street View, Then & Now: New York City's Fifth Avenue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

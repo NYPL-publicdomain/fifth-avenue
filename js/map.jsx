@@ -37,8 +37,7 @@ module.exports = React.createClass({
           40.7520
         ],
         zoom: 15,
-        bearing: -61.07,
-        //pitch: 30,
+        bearing: -61.07
       },
 
       fifthAvenue: {
@@ -161,15 +160,9 @@ module.exports = React.createClass({
       source: 'triangles',
       interactive: true,
       type: 'fill',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round'
-      },
       paint: {
-        'fill-color': '#088',
-        'fill-opacity': 0.8,
-        'line-color': '#888',
-        'line-width': 3
+        'fill-color': '#61615f',
+        'fill-opacity': 0.8
       }
     });
 
@@ -183,10 +176,10 @@ module.exports = React.createClass({
         'line-cap': 'round'
       },
       paint: {
-        'fill-color': '#f00',
-        'fill-opacity': 0.8,
-        'line-color': '#f00',
-        'line-width': 3
+        'fill-color': '#007ad8',
+        // 'fill-opacity': 0.8
+        //'line-color': '#d8b92f',
+        //'line-width': 3
       }
     });
 
