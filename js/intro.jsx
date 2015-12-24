@@ -23,7 +23,7 @@ module.exports = React.createClass({
         </blockquote>
         <p>
           With this <a href="//publicdomain.nypl.org">public domain remix</a>, you can compare the photos from the 1911 <a href="http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about">Fifth Avenue from Start to Finish collection</a> with
-          2015's <a href='https://www.google.nl/maps/@40.7528429,-73.9813567,3a,75y,299.2h,96.54t/data=!3m6!1e1!3m4!1sFR-Gcj5IDRGxJ72fhcikWw!2e0!7i13312!8i6656'>Google Street View</a>. Use your keyboard's arrow keys, click on the markers on the map, or use the controls on the screen to move up and down Firth Avenue.
+          2015's <a href='https://www.google.nl/maps/@40.7528429,-73.9813567,3a,75y,299.2h,96.54t/data=!3m6!1e1!3m4!1sFR-Gcj5IDRGxJ72fhcikWw!2e0!7i13312!8i6656'>Google Street View</a>. Use your keyboard's arrow keys, click on the markers on the map, or use the controls on the screen to move up and down Fifth Avenue.
         </p>
         <div id='button-container'>
           <button onClick={this.props.close}>Take me to 1911!</button>
