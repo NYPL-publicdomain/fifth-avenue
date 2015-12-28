@@ -58,7 +58,7 @@ module.exports = React.createClass({
   render: function() {
     if (this.state.intro) {
       return (
-        <article>
+        <article ref='article'>
           <Intro close={this.closeIntro} />
         </article>
       );
@@ -80,7 +80,8 @@ module.exports = React.createClass({
 
   closeIntro: function() {
     this.setState({
-      intro: false
+      intro: false,
+      mapRadius: this.getMapRadius()
     });
   },
 
@@ -193,20 +194,19 @@ module.exports = React.createClass({
     }
   },
 
-  updateMapRadius: function() {
+  getMapRadius: function() {
     var article = ReactDOM.findDOMNode(this.refs.article);
-    var mapRadius = article.clientWidth / 15;
+    var mapRadius = Math.round(article.clientWidth / 15);
 
-    mapRadius = Math.max(mapRadius, 50);
-
-    this.setState({
-      mapRadius: mapRadius
-    });
+    return Math.max(mapRadius, 50);
   },
+
 
   handleResize: function() {
     if (!this.state.intro) {
-      this.updateMapRadius();
+      this.setState({
+        mapRadius: this.getMapRadius()
+      });
     }
   }
 });
