@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var Intro = require('./intro');
 var Photos = require('./photos');
@@ -37,6 +38,7 @@ module.exports = React.createClass({
     return {
       intro: true,
       uuid: this.props.uuid,
+      mapRadius: 75,
       currentItem: southToNorth[this.props.uuid],
       fieldsOfView: fieldsOfView,
       southToNorth: southToNorth,
@@ -62,9 +64,9 @@ module.exports = React.createClass({
       );
     } else {
       return (
-        <article>
+        <article ref='article'>
           <Photos ref='photos' setUuid={this.setUuid} currentItem={this.state.currentItem} getDirections={this.state.getDirections} goDirections={this.state.goDirections} />
-          <Map ref='map' setUuid={this.setUuid} currentItem={this.state.currentItem} fieldsOfView={this.state.fieldsOfView} />
+          <Map ref='map' setUuid={this.setUuid} currentItem={this.state.currentItem} fieldsOfView={this.state.fieldsOfView} radius={this.state.mapRadius}/>
           <StreetView currentItem={this.state.currentItem} />
         </article>
       );
@@ -73,6 +75,7 @@ module.exports = React.createClass({
 
   componentDidMount: function() {
     document.onkeydown = this.onKeyDown;
+    window.addEventListener('resize', this.handleResize);
   },
 
   closeIntro: function() {
@@ -188,6 +191,20 @@ module.exports = React.createClass({
     } else {
       return null;
     }
-  }
+  },
 
+  updateMapRadius: function() {
+    var article = ReactDOM.findDOMNode(this.refs.article);
+    var mapRadius = article.clientWidth / 15;
+
+    this.setState({
+      mapRadius: mapRadius
+    });
+  },
+
+  handleResize: function() {
+    if (!this.state.intro) {
+      this.updateMapRadius();
+    }
+  }
 });

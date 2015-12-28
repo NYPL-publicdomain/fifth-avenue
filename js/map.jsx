@@ -9,8 +9,7 @@ module.exports = React.createClass({
     return {
       enlarge: false,
       borderWidth: 3,
-      radiusMin: 75,
-      radiusMax: 150,
+      headerHeight: 35,
       triangles: {
         type: 'FeatureCollection',
         features: this.props.fieldsOfView.features.map(function(feature) {
@@ -61,29 +60,40 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var minWidth = this.state.radiusMin * 2;
-    var maxWidth = this.state.radiusMax * 2;
+    var radiusMin = this.props.radius;
+    var radiusMax = radiusMin * 2;
 
-    var circlesStyle = {
-      height: `${maxWidth}px`
-    };
+    var headerHeight = this.state.headerHeight;
+    var minWidth = radiusMin * 2;
+    var maxWidth = radiusMax * 2;
 
     var mapWrapperStyle = {
       width: `${maxWidth}px`,
       height: `${maxWidth}px`,
-      marginTop: `-${maxWidth / 2}px`
+      marginTop: `-${maxWidth / 2 - headerHeight / 2}px`
     };
 
     var minWidthPx = `${minWidth}px`;
     var minRadiusPx = `${minWidth / 2}px`;
 
-    var className = this.state.enlarge ? 'enlarge' : '';
+    // var className = this.state.enlarge ? 'enlarge' : '';
+
+    var borderRadius = this.state.enlarge ? radiusMax : radiusMin;
+    var mapRadius = borderRadius - this.state.borderWidth;
+
+    var mapStyle = {
+      WebkitClipPath: `circle(${mapRadius}px at center)`
+    };
+
+    var mapBorderStyle = {
+      WebkitClipPath: `circle(${borderRadius}px at center)`
+    };
 
     return (
       <section id='map-container'>
-        <div id='map-wrapper' style={mapWrapperStyle} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-          <div id='map-border' className={className} />
-          <div id='map' className={className + ' mapboxgl-map'}/>
+        <div id='map-wrapper' style={mapWrapperStyle}>
+          <div id='map-border'  style={mapBorderStyle}/>
+          <div id='map' className='mapboxgl-map' style={mapStyle} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
         </div>
       </section>
     );
@@ -214,5 +224,4 @@ module.exports = React.createClass({
         map.getCanvas().style.cursor = features.length ? 'pointer' : '';
     });
   }
-
 });

@@ -274,13 +274,10 @@ section {
   position: relative;
 }
 
-/*TODO: get radius from JS!!!*/
 #map {
   width: 100%;
   height: 100%;
   top: -100%;
-
-  -webkit-clip-path: circle(75px at center);
   transition: -webkit-clip-path 0.5s ease;
 }
 
@@ -289,25 +286,7 @@ section {
   width: 100%;
   height: 100%;
   background-color: rgba(62, 62, 59, 0.5);
-
-  -webkit-clip-path: circle(78px at center);
   transition: -webkit-clip-path 0.5s ease;
-}
-
-#map.enlarge {
-  -webkit-clip-path: circle(147px at center);
-}
-
-#map-border.enlarge {
-  -webkit-clip-path: circle(150px at center);
-}
-
-#circles {
-  position: absolute;
-}
-
-#circles circle {
-  fill: #747570;
 }
 
 #street-view-container {
