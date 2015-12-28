@@ -240,16 +240,16 @@ nav ul li {
   width: 100%;
 }
 
-.align-left {
-  text-align: left;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
 }
 
-.align-middle {
-  text-align: center;
-}
-
-.align-right {
-  text-align: right;
+.section-header h3 {
+  margin: 0;
+  font-size: 25px;
 }
 
 .aspect-ratio:after {
@@ -312,12 +312,6 @@ section {
 
 #street-view-container {
   position: relative;
-}
-
-#street-view-container #real-colors {
-  position: absolute;
-  right: 10px;
-  top: 10px;
 }
 
 .color-filters {

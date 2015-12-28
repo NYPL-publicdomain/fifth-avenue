@@ -35,8 +35,13 @@ module.exports = React.createClass({
 
       return (
         <section id='street-view-container' className='margin-top full-width' >
+          <div className='section-header'>
+            <h3>2015:</h3>
+            <div className='menu'>
+              <a id='real-colors' href='javascript:void(0)' onClick={this.toggleColorFilters}>Toggle colors</a>
+            </div>
+          </div>
           <div id='street-view' className={className} />
-          <a id='real-colors' href='javascript:void(0)' onClick={this.toggleColorFilters}>Toggle colors</a>
         </section>
       );
     } else {
