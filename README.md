@@ -38,3 +38,15 @@ This dataset contains photo UUIDs, and additional information about the photo's 
 With Space/Time's [field-of-view](https://github.com/nypl-spacetime/field-of-view) module, we can convert this dataset to a GeoJSON file containing [field of view geometries](data/fields-of-view.json):
 
 [![](img/field-of-view.png)](data/fields-of-view.json)
+
+### About the NYPL Public Domain Release
+
+On January 6, 2016, The New York Public Library enhanced access to public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways. For all such items the Library now makes it possible to download the highest resolution images available directly from the Digital Collections website.
+
+That means more than 187,000 items free to use without restriction! But we know that 180K of anything is a lot to get your head around — so as a way to introduce you to these collections and inspire new works, NYPL Labs developed a suite of projects and tools to help you explore the vast collections and dive deep into specific ones.
+
+Go forth & re-use; apply for our Remix Residency; and let us know what you made with the [#nyplpd hashtag](https://twitter.com/search?f=tweets&q=%23nyplpd). For more info, links to our projects and more, visit:
+
+- [More about our public domain release](http://publicdomain.nypl.org)
+- Remix Residency
+- [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
