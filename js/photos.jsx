@@ -24,17 +24,17 @@ module.exports = React.createClass({
       }
     };
 
-    //<li id='photo-across' ref='across'></li>
+    var dcLink = 'http://digitalcollections.nypl.org/items/' + current.uuid;
 
     return (
       <section id='photos-container' className='margin-top full-width'>
-
         <div className='section-header'>
           <h3>1911:</h3>
           <div className='menu'>
             ← <a href='javascript:void(0)' onClick={this.goSouth}>Go south</a>,
             → <a href='javascript:void(0)' onClick={this.goNorth}>go north</a>,
-            or ↕ <a href='javascript:void(0)' onClick={this.goAcross}>cross the street</a>
+            ↕ <a href='javascript:void(0)' onClick={this.goAcross}>cross the street</a>,
+            or open in <a target='_blank' href={dcLink}>Digital Collections</a>
           </div>
         </div>
         <div id='photos' className='aspect-ratio'>
