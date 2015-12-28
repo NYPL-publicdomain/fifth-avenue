@@ -118,6 +118,7 @@ header {
   text-align: center;
   padding: 5px;
   line-height: 1.5em;
+  /*font-size: 13px*/
 }
 
 .lion {
@@ -131,9 +132,15 @@ header {
   vertical-align: middle;
 }
 
-#button-container {
+.button-container {
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 700px) {
+  .only-when-narrow {
+    display: none;
+  }
 }
 
 button {
@@ -321,11 +328,11 @@ section {
   transform: translate(0, 0);
 }
 
-#photos #photo-south {
+#photos #photo-left {
   transform: translate(-100%, 0);
 }
 
-#photos #photo-north {
+#photos #photo-right {
   transform: translate(100%, 0);
 }
 

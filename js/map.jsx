@@ -183,8 +183,8 @@ module.exports = React.createClass({
       paint: {
         'fill-color': '#c02026',
         // 'fill-opacity': 0.8
-        //'line-color': '#d8b92f',
-        //'line-width': 3
+        'line-color': '#d8b92f',
+        'line-width': 30
       }
     });
 

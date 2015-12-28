@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 module.exports = React.createClass({
@@ -24,14 +25,28 @@ module.exports = React.createClass({
       }
     };
 
+    var uuids = {
+      current: current.uuid,
+      south: south ? south.uuid : null,
+      north: north ? north.uuid : null
+    };
+
     var dcLink = 'http://digitalcollections.nypl.org/items/' + current.uuid;
+
+    var direction = current.feature.properties.data.direction;
+
+    var left = 'south';
+    var right = 'north'
+    if (direction === 'east') {
+      [left, right] = [right, left];
+    }
 
     return (
       <section id='photos-container' className='margin-top full-width'>
         <div className='section-header'>
           <h3>1911:</h3>
           <div className='menu'>
-            ← <a href='javascript:void(0)' onClick={this.goSouth}>Go south</a>,
+            ← <a href='javascript:void(0)' onClick={this.goSouth}>go south</a>,
             → <a href='javascript:void(0)' onClick={this.goNorth}>go north</a>,
             ↕ <a href='javascript:void(0)' onClick={this.goAcross}>cross the street</a>,
             or open in <a target='_blank' href={dcLink}>Digital Collections</a>
@@ -40,9 +55,9 @@ module.exports = React.createClass({
         <div id='photos' className='aspect-ratio'>
           <ol>
             <ReactCSSTransitionGroup transitionName='example' transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-              {south ? <li key={south.uuid} id='photo-south' ref='south' style={styles.south}></li> : null }
-              <li key={current.uuid} id='photo-current' ref='current' style={styles.current} onClick={this.handleClick} ></li>
-              { north ? <li key={north.uuid} id='photo-north' ref='north' style={styles.north}></li> : null }
+              <li key={uuids[left]} id='photo-left' ref='left' style={styles[left]}></li>
+              <li key={uuids.current} id='photo-current' ref='current' style={styles.current} onMouseDown={this.handleClick} ></li>
+              <li key={uuids[right]} id='photo-right' ref='right' style={styles[right]}></li>
             </ReactCSSTransitionGroup>
           </ol>
         </div>
@@ -51,19 +66,38 @@ module.exports = React.createClass({
   },
 
   handleClick: function(e) {
-    var width = e.target.clientWidth;
-    var height = e.target.clientHeight;
-    // var perc = e.offsetX/ $(this).width() * 100;
-    // $(this).html(e.offsetX + " | " + perc + " perc");
-    //
-    // var x = e.clientX;
-    // var y = e.clientY;
-    //
-    // console.log(x, y, e)
+    var photo = ReactDOM.findDOMNode(this.refs.current);
 
+    var elementX = e.pageX - photo.getBoundingClientRect().left;
+    var percentage = elementX / photo.clientWidth;
 
+    if (percentage > 0.5) {
+      this.goRight();
+    } else {
+      this.goLeft();
+    }
+  },
 
+  goLeft: function() {
+    var current = this.props.currentItem;
+    var direction = current.feature.properties.data.direction;
 
+    if (direction === 'east') {
+      this.goNorth();
+    } else {
+      this.goSouth();
+    }
+  },
+
+  goRight: function() {
+    var current = this.props.currentItem;
+    var direction = current.feature.properties.data.direction;
+
+    if (direction === 'east') {
+      this.goSouth();
+    } else {
+      this.goNorth();
+    }
   },
 
   goSouth: function() {

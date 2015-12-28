@@ -38,7 +38,7 @@ module.exports = React.createClass({
           <div className='section-header'>
             <h3>2015:</h3>
             <div className='menu'>
-              <a id='real-colors' href='javascript:void(0)' onClick={this.toggleColorFilters}>Toggle colors</a>
+              <a id='real-colors' href='javascript:void(0)' onClick={this.toggleColorFilters}>toggle colors</a>
             </div>
           </div>
           <div id='street-view' className={className} />
