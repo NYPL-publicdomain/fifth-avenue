@@ -92,26 +92,21 @@ module.exports = React.createClass({
   componentDidMount: function() {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmVydHNwYWFuIiwiYSI6ImR3dERiQk0ifQ.DLbScmbRohc3Sqv7prfhqw';
 
-    // var styleUrl = 'mapbox://styles/bertspaan/cih58g664001k9sm5pxoyfji9';
-    var styleUrl = 'https://api.mapbox.com/styles/v1/bertspaan/cih58g664001k9sm5pxoyfji9?access_token='+ mapboxgl.accessToken;
-    // TODO: DO NOT GET JSON!
-    mapboxgl.util.getJSON(styleUrl, (err, stylesheet) => {
-      var mapStyle = {
-        container: 'map',
-        attributionControl: false,
-        style: stylesheet
-      };
+    var mapStyle = {
+      container: 'map',
+      attributionControl: false,
+      style: 'mapbox://styles/bertspaan/cih58g664001k9sm5pxoyfji9'
+    };
 
-      var map = new mapboxgl.Map(Object.assign({}, this.state.flyTo, mapStyle));
-      map.dragRotate.disable();
+    var map = new mapboxgl.Map(Object.assign({}, this.state.flyTo, mapStyle));
+    map.dragRotate.disable();
 
-      map.on('click', this.onClick);
-      map.on('mousemove', this.onMousemove);
-      map.on('style.load', this.onStyleLoad);
+    map.on('click', this.onClick);
+    map.on('mousemove', this.onMousemove);
+    map.on('style.load', this.onStyleLoad);
 
-      this.setState({
-        map: map
-      });
+    this.setState({
+      map: map
     });
   },
 
