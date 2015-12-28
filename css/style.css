@@ -114,7 +114,7 @@ blockquote em {
 }
 
 header {
-  background-color: #C0BCB2;
+  background-color: rgb(220, 210, 200);
   text-align: center;
   padding: 5px;
   line-height: 1.5em;
