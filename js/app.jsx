@@ -197,6 +197,8 @@ module.exports = React.createClass({
     var article = ReactDOM.findDOMNode(this.refs.article);
     var mapRadius = article.clientWidth / 15;
 
+    mapRadius = Math.max(mapRadius, 50);
+
     this.setState({
       mapRadius: mapRadius
     });
