@@ -9,6 +9,11 @@ module.exports = React.createClass({
           <a id='cover' href='javascript:void(0)' onClick={this.props.close}></a>
         </div>
         <p>
+          <div id='button-container'>
+            <button onClick={this.props.close}>Take me to 1911!</button>
+          </div>
+        </p>
+        <p>
           From <a href='http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about'>The New York Public Library Digital Collections</a>:
         </p>
         <blockquote className='columns'>
