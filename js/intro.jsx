@@ -8,7 +8,11 @@ module.exports = React.createClass({
         <div id='cover-container' className='aspect-ratio'>
           <a id='cover' href='javascript:void(0)' onClick={this.props.close}></a>
         </div>
-        <p className='button-container only-when-narrow'>
+        <p>
+          With this <a href="//publicdomain.nypl.org">public domain remix</a>, you can compare the photos from the 1911 <a href="http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about">Fifth Avenue from Start to Finish collection</a> with
+          2015's <a href='https://www.google.nl/maps/@40.7528429,-73.9813567,3a,75y,299.2h,96.54t/data=!3m6!1e1!3m4!1sFR-Gcj5IDRGxJ72fhcikWw!2e0!7i13312!8i6656'>Google Street View</a>. Use your keyboard's arrow keys, click on the markers on the map, or use the controls on the screen to move up and down Fifth Avenue. This website works best with Chrome or Safari.
+        </p>
+        <p className='button-container'>
           <button onClick={this.props.close}>Take me to 1911!</button>
         </p>
         <p>
@@ -24,11 +28,7 @@ module.exports = React.createClass({
           The <em>Save New York Committee</em> became a bulwark against the wrong kind of development. Perhaps inspired by this contemporary
           movement, photographer Burton Welles used a wide-angled view camera in 1911 to document this most important street from Washington Square, north to East 93rd Street.
         </blockquote>
-        <p>
-          With this <a href="//publicdomain.nypl.org">public domain remix</a>, you can compare the photos from the 1911 <a href="http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about">Fifth Avenue from Start to Finish collection</a> with
-          2015's <a href='https://www.google.nl/maps/@40.7528429,-73.9813567,3a,75y,299.2h,96.54t/data=!3m6!1e1!3m4!1sFR-Gcj5IDRGxJ72fhcikWw!2e0!7i13312!8i6656'>Google Street View</a>. Use your keyboard's arrow keys, click on the markers on the map, or use the controls on the screen to move up and down Fifth Avenue. This website works best with Chrome or Safari.
-        </p>
-        <div className='button-container'>
+        <div className='button-container only-when-narrow'>
           <button onClick={this.props.close}>Take me to 1911!</button>
         </div>
       </section>
