@@ -45,8 +45,8 @@ On January 6, 2016, The New York Public Library enhanced access to public domain
 
 That means more than 187,000 items free to use without restriction! But we know that 180K of anything is a lot to get your head around — so as a way to introduce you to these collections and inspire new works, NYPL Labs developed a suite of projects and tools to help you explore the vast collections and dive deep into specific ones.
 
-Go forth & re-use; apply for our Remix Residency; and let us know what you made with the #nyplpd hashtag. For more info, links to our projects and more, visit:
+Go forth & reuse; apply for our Remix Residency; and let us know what you made with the #nyplpd hashtag. For more info, links to our projects and more, visit:
 
 - [More about our public domain release](http://publicdomain.nypl.org)
-- Remix Residency
+- Remix Residency (coming soon)
 - [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
