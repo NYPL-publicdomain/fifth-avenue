@@ -313,6 +313,7 @@ section {
 #photos ol, #photos li {
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 #photos ol {
