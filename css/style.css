@@ -286,6 +286,8 @@ section {
   height: 100%;
   top: -100%;
   transition: -webkit-clip-path 0.5s ease;
+
+  border-radius: 1000px;
 }
 
 #map-border {
@@ -294,6 +296,8 @@ section {
   height: 100%;
   background-color: rgba(62, 62, 59, 0.5);
   transition: -webkit-clip-path 0.5s ease;
+
+  border-radius: 1000px;
 }
 
 #street-view-container {
