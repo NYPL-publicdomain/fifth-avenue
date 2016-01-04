@@ -1,4 +1,3 @@
-var H = require ('highland');
 var request = require ('request');
 var JSONStream = require('JSONStream');
 var pitsToGeoJSON = require ('pits-to-geojson');
