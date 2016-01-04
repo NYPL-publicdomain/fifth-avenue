@@ -10,19 +10,13 @@ _Street View, Then & Now: New York City's Fifth Avenue is_ a [public domain remi
 
 ## Data
 
-The locations and fields-of-view of each photo are loaded from a single GeoJSON file:
-
-- [`data/fields-of-view.json`](data/fields-of-view.json)
+The locations and fields-of-view of each photo are loaded from a single GeoJSON file: [`data/fields-of-view.json`](data/fields-of-view.json) (view this file on [geojson.io](http://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2FNYPL-publicdomain%2Ffifth-avenue%2Fgh-pages%2Fdata%2Ffields-of-view.json)).
 
 [![](img/field-of-view.png)](data/fields-of-view.json)
 
-You can also view this file on [geojson.io](http://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2FNYPL-publicdomain%2Ffifth-avenue%2Fgh-pages%2Fdata%2Ffields-of-view.json).
+This data comes from the [Space/Time Directory](http://spacetime.nypl.org/) Digital Collections dataset, in [Histograph](https://github.com/histograph/histograph)'s NDJSON format: [`digital-collections.pits.ndjson`](https://github.com/nypl-spacetime/data/blob/master/digital-collections/digital-collections.pits.ndjson).
 
-This data comes from the [Space/Time Directory](http://spacetime.nypl.org/) Digital Collections dataset, in [Histograph](https://github.com/histograph/histograph)'s NDJSON format:
-
-- https://github.com/nypl-spacetime/data/blob/master/digital-collections/digital-collections.pits.ndjson
-
-This dataset contains the UUID of each photo, and additional information about the photo's location and [field of view](https://en.wikipedia.org/wiki/Field_of_view):
+Each line in this NDJSON file represents a Digital Collection item, and contains it's UUID, as well as additional information about the photo's location and [field of view](https://en.wikipedia.org/wiki/Field_of_view):
 
 ```json
 {
