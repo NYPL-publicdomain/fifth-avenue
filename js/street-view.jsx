@@ -33,10 +33,12 @@ module.exports = React.createClass({
         className += ' color-filters';
       }
 
+      var year = new Date().getFullYear();
+
       return (
         <section id='street-view-container' className='margin-top full-width' >
           <div className='section-header'>
-            <h3>2015:</h3>
+            <h3>{year}:</h3>
             <div className='menu'>
               <a id='real-colors' href='javascript:void(0)' onClick={this.toggleColorFilters}>toggle colors</a>
             </div>
