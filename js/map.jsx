@@ -100,12 +100,12 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYmVydHNwYWFuIiwiYSI6ImR3dERiQk0ifQ.DLbScmbRohc3Sqv7prfhqw';
+    mapboxgl.accessToken = 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiY2lqMjBzdmRnMDBkbnRvbHpxNjJqcXV4bCJ9.6PmQSsjQT8zCgbOnZKCFdg';
 
     var mapStyle = {
       container: 'map',
       attributionControl: false,
-      style: 'mapbox://styles/bertspaan/cih58g664001k9sm5pxoyfji9'
+      style: 'mapbox://styles/nypllabs/cij200za6003e8ykq2tsgjpd0'
     };
 
     var map = new mapboxgl.Map(Object.assign({}, this.state.flyTo, mapStyle));
