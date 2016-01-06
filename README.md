@@ -43,14 +43,16 @@ Each line in this NDJSON file represents a Digital Collection item, and contains
 
 With Space/Time's [field-of-view](https://github.com/nypl-spacetime/field-of-view) module, we can convert this dataset to a GeoJSON file containing field-of-view geometries.
 
+---
 ### About the NYPL Public Domain Release
 
-On January 6, 2016, The New York Public Library enhanced access to public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways. For all such items the Library now makes it possible to download the highest resolution images available directly from the Digital Collections website.
+On January 6, 2016, The New York Public Library enhanced access to public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways. For all such items the Library now makes it possible to download the highest resolution images available directly from the [Digital Collections](http://digitalcollections.nypl.org) website. 
 
-That means more than 187,000 items free to use without restriction! But we know that 180K of anything is a lot to get your head around — so as a way to introduce you to these collections and inspire new works, NYPL Labs developed a suite of projects and tools to help you explore the vast collections and dive deep into specific ones.
+That means more than 187,000 items free to use without restriction! But we know that 180K of anything is a lot to get your head around — so as a way to introduce you to these collections and inspire new works, NYPL Labs developed a suite of [projects and tools](http://nypl.org/publicdomain) to help you explore the vast collections and dive deep into specific ones. 
 
-Go forth & reuse; apply for our Remix Residency; and let us know what you made with the #nyplpd hashtag. For more info, links to our projects and more, visit:
+Go forth, reuse, and let us know what you made with the #nyplremix hashtag! For more information:
 
-- [More about our public domain release](http://publicdomain.nypl.org)
-- Remix Residency (coming soon)
+- [NYPL Labs Remix Residency](http://www.nypl.org/help/about-nypl/fellowships-institutes/remix)
 - [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
+- [Public Domain Collections](http://publicdomain.nypl.org)
+- [Project Credits](https://github.com/NYPL-publicdomain/nypl-publicdomain.github.io#credits-for-the-january-2016-nypl-public-domain-release)
