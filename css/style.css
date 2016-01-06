@@ -290,7 +290,7 @@ section {
   width: 100%;
   height: 100%;
   top: -100%;
-  transition: -webkit-clip-path 0.5s ease;
+  -webkit-transition: -webkit-clip-path 0.5s ease;
   transition: clip-path 0.5s ease;
 
   border-radius: 1000px;
@@ -302,7 +302,7 @@ section {
   height: 100%;
   background-color: rgba(62, 62, 59, 0.5);
 
-  transition: -webkit-clip-path 0.5s ease;
+  -webkit-transition: -webkit-clip-path 0.5s ease;
   transition: clip-path 0.5s ease;
 
   border-radius: 1000px;
