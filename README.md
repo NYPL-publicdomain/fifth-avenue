@@ -20,22 +20,22 @@ Each line in this NDJSON file represents a Digital Collection item, and contains
 
 ```json
 {
-	"id": "510d47dc-9a46-a3d9-e040-e00a18064a99",
-	"type": "st:Photo",
-	"data": {
-		"imageId": "1113225",
-		"direction": "west",
-		"bearing": 298,
-		"distance": 19,
-		"collection": "66614620-c6ca-012f-0a98-58d385a7bc34"
-	},
-	"validSince": 1911,
-	"validUntil": 1911,
-	"geometry": {
-		"type": "Point",
+  "id": "510d47dc-9a46-a3d9-e040-e00a18064a99",
+  "type": "st:Photo",
+  "data": {
+    "imageId": "1113225",
+    "direction": "west",
+    "bearing": 298,
+    "distance": 19,
+    "collection": "66614620-c6ca-012f-0a98-58d385a7bc34"
+  },
+  "validSince": 1911,
+  "validUntil": 1911,
+  "geometry": {
+    "type": "Point",
     "coordinates": [
-    	-73.996396,
-			40.732277
+      -73.996396,
+      40.732277
     ]
   }
 }
