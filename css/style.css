@@ -201,6 +201,10 @@ header, header a, header a:visited {
     -moz-column-count: 1;
     column-count: 1;
   }
+
+  header {
+    font-size: 12px;
+  }
 }
 
 .columns p {
