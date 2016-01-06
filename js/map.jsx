@@ -76,17 +76,17 @@ module.exports = React.createClass({
     var minWidthPx = `${minWidth}px`;
     var minRadiusPx = `${minWidth / 2}px`;
 
-    // var className = this.state.enlarge ? 'enlarge' : '';
-
     var borderRadius = this.state.enlarge ? radiusMax : radiusMin;
     var mapRadius = borderRadius - this.state.borderWidth;
 
     var mapStyle = {
-      WebkitClipPath: `circle(${mapRadius}px at center)`
+      WebkitClipPath: `circle(${mapRadius}px at center)`,
+      clipPath: `circle(${mapRadius}px at center)`
     };
 
     var mapBorderStyle = {
-      WebkitClipPath: `circle(${borderRadius}px at center)`
+      WebkitClipPath: `circle(${borderRadius}px at center)`,
+      clipPath: `circle(${borderRadius}px at center)`
     };
 
     return (
