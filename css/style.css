@@ -291,8 +291,9 @@ section {
   height: 100%;
   top: -100%;
   
-  transition: clip-path 0.5s ease;
-  -webkit-transition: -webkit-clip-path 0.5s ease;
+  transition: all 0.5s ease; 
+  /*transition: clip-path 0.5s ease;
+  -webkit-transition: -webkit-clip-path 0.5s ease;*/
 
   border-radius: 1000px;
 }
@@ -303,8 +304,9 @@ section {
   height: 100%;
   background-color: rgba(62, 62, 59, 0.5);
 
-  transition: clip-path 0.5s ease;
-  -webkit-transition: -webkit-clip-path 0.5s ease;
+  transition: all 0.5s ease; 
+  /*transition: clip-path 0.5s ease;
+  -webkit-transition: -webkit-clip-path 0.5s ease;*/
   
   border-radius: 1000px;
 }
