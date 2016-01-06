@@ -33,7 +33,7 @@ module.exports = React.createClass({
         className += ' color-filters';
       }
 
-      var year = new Date().getFullYear();
+      var year = 2015; //new Date().getFullYear();
 
       return (
         <section id='street-view-container' className='margin-top full-width' >
