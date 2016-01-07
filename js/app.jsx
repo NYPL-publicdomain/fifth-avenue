@@ -26,8 +26,8 @@ module.exports = React.createClass({
     var southToNorth = {};
     var length = fieldsOfView.features.length;
     fieldsOfView.features.forEach(function(feature, i) {
-      southToNorth[feature.properties.id] = {
-        uuid: feature.properties.id,
+      southToNorth[feature.properties.data.uuid] = {
+        uuid: feature.properties.data.uuid,
         index: i,
         north: (i < length - 1) ? fieldsOfView.features[i + 1] : null,
         south: (i > 0) ? fieldsOfView.features[i - 1] : null,
@@ -178,12 +178,12 @@ module.exports = React.createClass({
 
     if (item[southOrNorth]) {
       // Go one photo south or north
-      var tempItem = southToNorth[item[southOrNorth].properties.id];
+      var tempItem = southToNorth[item[southOrNorth].properties.data.uuid];
 
       // Go south or north until there are either no more photos, or until photo with
       //   same direction is found
       while (tempItem[southOrNorth] && tempItem.feature.properties.data.direction !== westOrEast) {
-        tempItem = southToNorth[tempItem[southOrNorth].properties.id];
+        tempItem = southToNorth[tempItem[southOrNorth].properties.data.uuid];
       }
 
       if (tempItem.feature.properties.data.direction === westOrEast) {

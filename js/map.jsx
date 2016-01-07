@@ -16,7 +16,7 @@ module.exports = React.createClass({
           return {
             type: 'Feature',
             properties: {
-              uuid: feature.properties.id
+              uuid: feature.properties.data.uuid
             },
             geometry: {
               type: 'Polygon',
