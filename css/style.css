@@ -124,6 +124,7 @@ header {
 .lion {
   display: inline-block;
   background: transparent url(../img/lion-rev.png) no-repeat;
+  background-size: contain;
   width: 30px;
   height: 30px;
   margin-right: 10px;
@@ -195,7 +196,7 @@ header, header a, header a:visited {
   column-count: 2;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .columns {
     -webkit-column-count: 1;
     -moz-column-count: 1;
@@ -203,7 +204,12 @@ header, header a, header a:visited {
   }
 
   header {
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  .lion {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -290,8 +296,8 @@ section {
   width: 100%;
   height: 100%;
   top: -100%;
-  
-  transition: all 0.5s ease; 
+
+  transition: all 0.5s ease;
   /*transition: clip-path 0.5s ease;
   -webkit-transition: -webkit-clip-path 0.5s ease;*/
 
@@ -304,10 +310,10 @@ section {
   height: 100%;
   background-color: rgba(62, 62, 59, 0.5);
 
-  transition: all 0.5s ease; 
+  transition: all 0.5s ease;
   /*transition: clip-path 0.5s ease;
   -webkit-transition: -webkit-clip-path 0.5s ease;*/
-  
+
   border-radius: 1000px;
 }
 
