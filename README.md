@@ -56,3 +56,7 @@ Go forth, reuse, and let us know what you made with the #nyplremix hashtag! For 
 - [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
 - [Public Domain Collections](http://publicdomain.nypl.org)
 - [Project Credits](https://github.com/NYPL-publicdomain/nypl-publicdomain.github.io#credits-for-the-january-2016-nypl-public-domain-release)
+
+### License
+
+See [license](/LICENSE).
